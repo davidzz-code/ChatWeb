@@ -53,7 +53,7 @@ html, body{
     margin-top: 20px;
 }
 
-.form-interno .form .campo input{
+.form-interno .form .campo input, select, option{
     height: 100%;
     width: 100%;
     outline: none;
@@ -62,7 +62,17 @@ html, body{
     border-radius: 5px;
     border: 1px solid lightgray;
     border-bottom-width: 2px;
+    appearance: none;
 }
+
+.form-interno .form .checkbox{
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+
 
 .contenedor-form .form-interno .campo input:focus{
     border-bottom-color: black;
@@ -138,25 +148,3 @@ button:focus:before {
 .contenedor-form .form-interno button:active {
     transform: scale(0.9);
 }
-
-/* .contenedor-form .form-interno button{
-    height: 100%;
-    width: 100%;
-    margin-top: 20px;
-    padding: 15px;
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
-    background: linear-gradient(318deg,rgba(29,38,125,1) 0%, rgba(0,0,0,1) 100%);
-    border: 4px solid white;
-    cursor: pointer;
-}
-
-.contenedor-form .form-interno button:hover{
-    border: 4px solid #C69749;
-}
-
-.contenedor-form .form-interno button:active{
-    color: black;
-    background: #C69749;
-} */
