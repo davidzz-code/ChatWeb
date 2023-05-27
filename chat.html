@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="chat.css">
-    <script href="chat.js" defer></script>
+    <link rel="stylesheet" href="./resources/css/chat.css">
+    <script src="./resources/javascript/chat.js" defer></script>
     <title>ChatWeb</title>
 </head>
 <body>
-    
-    
+
+    <label for="friend">Email de tu amigo</label><br>
+    <input type="text" name="friend" id="friend">
+    <button onclick="añadirAmigo()">Añadir</button>
+    <br>
+    <select name="listaAmigos" id="listaAmigos">
+        <option value="" disabled selected hidden>Lista de amigos</option>
+
+    </select>
 </body>
 </html>
