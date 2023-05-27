@@ -47,6 +47,7 @@ function enviarLogin() {
             if (session > 0) {
                 window.sessionStorage.setItem("mail", mail);
                 window.sessionStorage.setItem("pass", pass);
+                window.location.href = "chat.html";
             } else {
                 document.querySelector(".result").innerHTML = "Login INCORRECTO";
             }
