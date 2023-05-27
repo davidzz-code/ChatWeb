@@ -16,7 +16,7 @@ function añadirAmigo() {
             if (respuesta == 0) {
                 console.log("ERROR. El servidor no responde");
             } else if (respuesta == 1) {                
-                console.log("Todo bien")
+                console.log("Amigo añadido")
                 recibirAmigos();
 
             } else if (respuesta == 2) {
@@ -45,9 +45,10 @@ function recibirAmigos() {
             let jsonAmigos = JSON.parse(http.responseText);
 
             let select = document.getElementById("listaAmigos");
-            let option = document.createElement("option");
-
+            select.innerHTML = "";
+            
             for (let i = 0; i < jsonAmigos.length; i++){
+                let option = document.createElement("option");
                 
                 option.text = jsonAmigos[i];
                 option.value = jsonAmigos[i];
@@ -55,6 +56,4 @@ function recibirAmigos() {
             }
         }
     }
-
-
 }
