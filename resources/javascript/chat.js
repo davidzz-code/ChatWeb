@@ -57,3 +57,12 @@ function recibirAmigos() {
         }
     }
 }
+
+function cerrarSesion() {
+    sessionStorage.setItem("mail", "");
+    sessionStorage.setItem("session", "");
+    sessionStorage.setItem("pass", "");
+
+    window.location.href = "iniciarSesion.html";
+
+}
