@@ -58,11 +58,35 @@ function recibirAmigos() {
     }
 }
 
+function enviarMensaje() {
+    let http = new XMLHttpRequest();
+
+    let mail = sessionStorage.getItem("mail");
+    let session = sessionStorage.getItem("session");
+    let receptor = document.getElementById("listaAmigos").value;
+    let sms = document.getElementById("sms").value;
+
+    http.open("POST", "http://localhost:5000/XatLLM/Xat", true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("mail=" + mail + "&session=" + session + "&receptor=" + receptor + "&sms=" + sms);
+}
+
+
+function recibirMensaje() {
+    
+}
+
+
 function cerrarSesion() {
     sessionStorage.setItem("mail", "");
     sessionStorage.setItem("session", "");
     sessionStorage.setItem("pass", "");
 
     window.location.href = "iniciarSesion.html";
+}
 
+function nombreUsuario() {
+    let mailUsuario = sessionStorage.getItem("mail");
+
+    document.querySelector(".titulo").innerHTML = "Hola " + mailUsuario;
 }

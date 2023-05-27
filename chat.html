@@ -8,8 +8,9 @@
     <script src="./resources/javascript/chat.js" defer></script>
     <title>ChatWeb</title>
 </head>
-<body onload="recibirAmigos()">
+<body onload="recibirAmigos(); nombreUsuario()">
 
+    <h1 class="titulo"></h1>
     <label for="friend">Email de tu amigo</label><br>
     <input type="text" name="friend" id="friend">
     <button onclick="añadirAmigo()">Añadir</button>
@@ -17,7 +18,13 @@
     <select name="listaAmigos" id="listaAmigos">
         <option value="" disabled selected hidden>Lista de amigos</option>
     </select>
+    <br>
+    <div class="chat" style="width:250px; height:120px; border: 1px solid black;">
 
+    </div>
+    <br>
+    <input type="text" name="sms" id="sms" placeholder="Enviar mensaje">
+    <button onclick="enviarMensaje()">Enviar</button>
     <br>
     <button onclick="cerrarSesion()">Cerrar sesión</button>
 </body>
