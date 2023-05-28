@@ -68,14 +68,38 @@ function enviarMensaje() {
 
     http.open("POST", "http://localhost:5000/XatLLM/Xat", true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send("mail=" + mail + "&session=" + session + "&receptor=" + receptor + "&sms=" + sms);
+    http.send("mail="+mail+"&session="+session+"&receptor="+receptor+"&sms="+sms);
+
+    let chat = document.querySelector(".chat");
+    chat.innerHTML += mail + ": " + sms + "<br>";
+    document.getElementById("sms").value = "";
 }
 
 
 function recibirMensaje() {
+    let http = new XMLHttpRequest();
+
+    let mail = sessionStorage.getItem("mail");
+    let session = sessionStorage.getItem("session");
     
+    http.open("GET", "http://localhost:5000/XatLLM/Xat?mail=" + mail + "&session=" + session, true);
+    http.send();
+    console.log("Enviado a GET");
+
+    http.onreadystatechange = function () {
+        console.log("Ready state:", http.readyState);
+        console.log("Status:", http.status);
+        if (http.readyState == 4 && http.status == 200) {
+            console.log("si status");
+            let mensajeRespuesta = JSON.parse(http.responseText);
+
+            let chat = document.querySelector(".chat");
+            chat.innerHTML += mensajeRespuesta.emisor + ": " + mensajeRespuesta.text + "<br>";
+        }
+    }
 }
 
+setInterval(recibirMensaje, 4000);
 
 function cerrarSesion() {
     sessionStorage.setItem("mail", "");
