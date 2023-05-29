@@ -84,27 +84,22 @@ function recibirMensaje() {
     
     http.open("GET", "http://localhost:5000/XatLLM/Xat?mail=" + mail + "&session=" + session, true);
     http.send();
-    console.log("Enviado a GET");
 
     http.onreadystatechange = function () {
-        console.log("Ready state:", http.readyState);
-        console.log("Status:", http.status);
         if (http.readyState == 4 && http.status == 200) {
-            console.log("si status");
             let mensajeRespuesta = JSON.parse(http.responseText);
 
             let chat = document.querySelector(".chat");
             chat.innerHTML += mensajeRespuesta.emisor + ": " + mensajeRespuesta.text + "<br>";
+            recibirMensaje();
         }
     }
 }
 
-setInterval(recibirMensaje, 4000);
-
 function cerrarSesion() {
-    sessionStorage.setItem("mail", "");
-    sessionStorage.setItem("session", "");
-    sessionStorage.setItem("pass", "");
+    sessionStorage.removeItem("mail");
+    sessionStorage.removeItem("session");
+    sessionStorage.removeItem("pass");
 
     window.location.href = "iniciarSesion.html";
 }

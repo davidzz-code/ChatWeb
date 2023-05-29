@@ -65,7 +65,6 @@ function getCountries() {
 
             let jsonString = http.responseText;
 
-
             let countryList = JSON.parse(jsonString);
             console.log(countryList);
 
