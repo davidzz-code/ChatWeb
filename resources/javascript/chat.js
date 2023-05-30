@@ -23,7 +23,6 @@ function añadirAmigo() {
                 console.log("Amigo no encontrado");
             } else if (respuesta == 3) {
                 console.log("Se acabó la sesión");
-                document.getElementById("repetirSesion").innerHTML = "Sesión caducada. Vuelve a iniciar sesión";
                 window.open("iniciarSesion.hmtl", "_blank");
             }
         }
