@@ -5,18 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./resources/css/vFinal.css">
+    <script src="./resources/javascript/vFinal.js"></script>
     <title>ChatWeb</title>
 </head>
 <body>
-    <header class="header"></header>
+    <header class="header">
+        <div class="header-amigo">
+            <button onclick="añadirDiv()">+</button>
+            <input type="text" name="friend" id="friend" placeholder="Email de amigo">
+        </div>
+
+        <div class="header-usuario">
+            <div class="nombre-usuario">nombre</div>
+            <button onclick="cerrarSesion()">Cerrar sesión</button>
+        </div>
+
+    </header>
     <section class="contenedor">
-        <div class="contenedor-amigos"> </div>
+        <div class="contenedor-amigos">
+        </div>
         <div class="contenedor-principal">
             <div class="contenedor-chat">
-                <div class="div4"> </div>
-                <div class="div5"> </div>
+                <div class="contenedor-mensaje-amigo"></div>
+                <div class="contenedor-mensaje-usuario"> </div>
             </div>
-            <div class="contenedor-mensaje"> </div>
+            <div class="contenedor-escribir">
+                <div class="div-sms">
+                    <input type="text" name="sms" id="sms" placeholder="Enviar mensaje">
+                    <button onclick="enviarMensaje()">Enviar</button>
+                </div>
+            </div>
         </div>
     </section>
 </body>

@@ -4,12 +4,32 @@
     box-sizing: border-box;
 }
 
+/* Header */
 .header{
     width: 100vw;
     height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: lightcoral;
 }
 
+.header .header-usuario{
+    display: flex;
+    margin-right: 40px;
+
+}
+
+.header .header-usuario .nombre-usuario{
+    margin-right: 10px;
+}
+
+.header .header-amigo{
+    margin-left: 40px;
+}
+
+
+/* Contenedores principales */
 .contenedor {
     display: grid;
     width: 100vw;
@@ -20,11 +40,23 @@
     grid-row-gap: 0px;
 }
 
+/* Contenedor izquierda amigos agregados */
 .contenedor-amigos {
     grid-area: 1 / 1 / 6 / 2;
+    overflow: scroll;
     background-color: lightgreen;
 }
 
+
+.contenedor-amigos .div-amigo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 109px;
+    border: 1px solid red;
+}
+
+/* Contenedor derecha conversación */
 .contenedor-principal {
     grid-area: 1 / 2 / 6 / 4;
     background-color: lightseagreen;
@@ -37,21 +69,24 @@
     border: 1px solid yellow;
 }
 
-.div4 {
+.contenedor-chat .contenedor-mensaje-amigo {
     width: 50%;
     height: 100%;
     border: 1px solid black;
 }
 
-.div5 {
+.contenedor-principal .contenedor-mensaje-usuario {
     width: 50%;
     height: 100%;
     border: 1px solid black; 
 }
 
-.contenedor-mensaje {
-
+.contenedor-principal .contenedor-escribir {
     width: 100%;
     height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: gray;
 }
