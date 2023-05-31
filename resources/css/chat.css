@@ -96,7 +96,6 @@
 }
 
 .contenedor-principal .conversacion{
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -160,11 +159,12 @@
     justify-content: flex-start;
 }
 
-.mensajeUsuario p{
+.mensajeUsuario .texto {
     background-color: lightgreen;
+    justify-content: flex-end;
 }
 
-.mensajeContacto p{
+.mensajeContacto .texto {
     padding: 10px;
     background-color: lightsalmon;
     border-radius: 5px;

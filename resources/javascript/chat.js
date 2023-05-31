@@ -28,14 +28,14 @@ function cargarContactos(emailAmigo) {
         
         mostrarConversacion();
     });
+
+    i++;
     
 
     // Añade los divs a sus respectivos divs padres
 
     divContactos.appendChild(divAmigo);
     contenedorPrincipal.appendChild(conversacion);
-
-    i++;
 }
 
 function mostrarConversacion()  {
@@ -91,14 +91,14 @@ function añadirAmigo() {
             if (respuesta == 0) {
                 alert("ERROR. El servidor no responde");
             } else if (respuesta == 1) {                
-                console.log("Añadir amigo");
-                recibirAmigos();
+                console.log("Amigo añadido");
+                cargarContactos(friend);
 
             } else if (respuesta == 2) {
                 alert("Amigo no encontrado");
             } else if (respuesta == 3) {
                 alert("Se acabó la sesión");
-                window.open("iniciarSesion.hmtl");
+                window.open("iniciarSesion.html");
             }
         }
     }
@@ -117,9 +117,12 @@ function recibirAmigos() {
         if (http.readyState == 4 && http.status == 200) {
             let jsonAmigos = JSON.parse(http.responseText);
             
+            
             for (let i = 0; i < jsonAmigos.length; i++){
-                cargarContactos(jsonAmigos[i]);
+                let persona = jsonAmigos[i];
+                cargarContactos(persona, i);
             }
+            
         }
     }
 }
@@ -137,7 +140,7 @@ function enviarMensaje() {
     http.send("mail="+mail+"&session="+session+"&receptor="+receptor+"&sms="+sms);
 
     let chat = document.getElementById(idConversacion);
-    chat.innerHTML += "<div class=\"mensaje mensajeUsuario\"><p>" + sms + "</p></div>";
+    chat.innerHTML += "<div class=\"mensaje mensajeUsuario\"><p class=\"texto\">" + sms + "</p></div>";
     document.getElementById("sms").value = "";
 }
 
@@ -155,7 +158,7 @@ function recibirMensaje() {
             let mensajeRespuesta = JSON.parse(http.responseText);
 
             let chat = document.getElementById(idConversacion);
-            chat.innerHTML += "<div class=\"mensaje mensajeContacto\"><p>" + mensajeRespuesta.text + "</p></div>";
+            chat.innerHTML += "<div class=\"mensaje mensajeContacto\"><p class=\"texto\">" + mensajeRespuesta.text + "</p></div>";
 
             recibirMensaje();
         }
