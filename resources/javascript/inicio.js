@@ -46,7 +46,7 @@ function enviarLogin() {
                 window.sessionStorage.setItem("mail", mail);
                 window.sessionStorage.setItem("pass", pass);
                 window.sessionStorage.setItem("session", session);
-                window.location.href = "vFinal.html";
+                window.location.href = "chat.html";
             } else {
                 alert("Login INCORRECTO");
             }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,24 +9,31 @@
     <script src="./resources/javascript/chat.js" defer></script>
     <title>ChatWeb</title>
 </head>
+
 <body onload="recibirAmigos(); nombreUsuario(); recibirMensaje()">
+    <header class="header">
+        <div class="header-amigo">
+            <button onclick="añadirAmigo()">+</button>
+            <input type="text" name="friend" id="friend" placeholder="Email de amigo">
+        </div>
 
-    <h1 class="titulo"></h1>
-    <label for="friend">Email de tu amigo</label><br>
-    <input type="text" name="friend" id="friend">
-    <button onclick="añadirAmigo()">Añadir</button>
-    <br>
-    <select name="listaAmigos" id="listaAmigos">
-        <option value="" disabled selected hidden>Lista de amigos</option>
-    </select>
-    <br>
-    <div class="chat" style="width:250px; height:120px; border: 1px solid black;">
+        <div class="header-usuario">
+            <div class="nombre-usuario"></div>
+            <button onclick="cerrarSesion()">Cerrar sesión</button>
+        </div>
 
-    </div>
-    <br>
-    <input type="text" name="sms" id="sms" placeholder="Enviar mensaje">
-    <button onclick="enviarMensaje()">Enviar</button>
-    <br>
-    <button onclick="cerrarSesion()">Cerrar sesión</button>
+    </header>
+    <section class="contenedor">
+        <div class="contenedor-amigos"> <!-- Javascript añade div-amigo --> </div>
+        <div class="contenedor-principal">
+            <!-- Javascript añade div "conversacion" -->
+            <div class="contenedor-escribir">
+                <div class="div-sms">
+                    <input type="text" name="sms" id="sms" placeholder="Escribe un mensaje">
+                    <button onclick="enviarMensaje()" class="boton-enviar">Enviar</button>
+                </div>
+            </div>
+    </section>
 </body>
+
 </html>
