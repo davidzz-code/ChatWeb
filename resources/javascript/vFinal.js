@@ -1,6 +1,7 @@
 let i = 1;
 var idContacto;
 var idConversacion;
+var contactoSeleccionado = null;
 
 function cargarContactos(emailAmigo) {
     let divContactos = document.querySelector(".contenedor-amigos");
@@ -36,9 +37,6 @@ function cargarContactos(emailAmigo) {
 
     i++;
 }
-
-
-let contactoSeleccionado = null;
 
 function mostrarConversacion()  {
     // Guarda los id de "contacto" y "conversacion" en varaibles
@@ -93,7 +91,7 @@ function añadirAmigo() {
             if (respuesta == 0) {
                 alert("ERROR. El servidor no responde");
             } else if (respuesta == 1) {                
-                console.log("Amigo añadido")
+                console.log("Añadir amigo");
                 recibirAmigos();
 
             } else if (respuesta == 2) {
@@ -139,30 +137,30 @@ function enviarMensaje() {
     http.send("mail="+mail+"&session="+session+"&receptor="+receptor+"&sms="+sms);
 
     let chat = document.getElementById(idConversacion);
-    chat.innerHTML += "<div class=\"mensaje\"><p>" + sms + "</p></div>";
+    chat.innerHTML += "<div class=\"mensaje mensajeUsuario\"><p>" + sms + "</p></div>";
     document.getElementById("sms").value = "";
 }
 
+function recibirMensaje() {
+    let http = new XMLHttpRequest();
 
-// // function recibirMensaje() {
-//     let http = new XMLHttpRequest();
-
-//     let mail = sessionStorage.getItem("mail");
-//     let session = sessionStorage.getItem("session");
+    let mail = sessionStorage.getItem("mail");
+    let session = sessionStorage.getItem("session");
     
-//     http.open("GET", "http://localhost:5000/XatLLM/Xat?mail=" + mail + "&session=" + session, true);
-//     http.send();
+    http.open("GET", "http://localhost:5000/XatLLM/Xat?mail=" + mail + "&session=" + session, true);
+    http.send();
 
-//     http.onreadystatechange = function () {
-//         if (http.readyState == 4 && http.status == 200) {
-//             let mensajeRespuesta = JSON.parse(http.responseText);
+    http.onreadystatechange = function () {
+        if (http.readyState == 4 && http.status == 200) {
+            let mensajeRespuesta = JSON.parse(http.responseText);
 
-//             let chat = document.querySelector(".chat");
-//             chat.innerHTML += mensajeRespuesta.emisor + ": " + mensajeRespuesta.text + "<br>";
-//             recibirMensaje();
-//         }
-//     }
-// }
+            let chat = document.getElementById(idConversacion);
+            chat.innerHTML += "<div class=\"mensaje mensajeContacto\"><p>" + mensajeRespuesta.text + "</p></div>";
+
+            recibirMensaje();
+        }
+    }
+}
 
 function cerrarSesion() {
     sessionStorage.removeItem("mail");

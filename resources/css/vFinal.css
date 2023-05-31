@@ -141,16 +141,31 @@
 
 .mensaje{
     display: flex;
-    justify-content: flex-end;
     padding-bottom: 13px;
-    padding-right: 35px;
     font-size: 20px;
-
 }
 
 .mensaje p{
-    
     padding: 10px;
+    border-radius: 5px;
+}
+
+.mensajeUsuario{
+    padding-right: 35px;
+    justify-content: flex-end;
+}
+
+.mensajeContacto{
+    padding-left: 35px;
+    justify-content: flex-start;
+}
+
+.mensajeUsuario p{
     background-color: lightgreen;
+}
+
+.mensajeContacto p{
+    padding: 10px;
+    background-color: lightsalmon;
     border-radius: 5px;
 }
