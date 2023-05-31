@@ -91,14 +91,16 @@ function añadirAmigo() {
             if (respuesta == 0) {
                 alert("ERROR. El servidor no responde");
             } else if (respuesta == 1) {                
-                console.log("Amigo añadido");
+                console.log("Contacto añadido");
                 cargarContactos(friend);
 
             } else if (respuesta == 2) {
-                alert("Amigo no encontrado");
+                alert("Contacto no encontrado");
             } else if (respuesta == 3) {
                 alert("Se acabó la sesión");
                 window.open("iniciarSesion.html");
+            } else if (respuesta == 4) {
+                alert("Ese contacto ya está en tu lista");
             }
         }
     }
@@ -177,3 +179,20 @@ function nombreUsuario() {
     let mailUsuario = sessionStorage.getItem("mail");
     document.querySelector(".nombre-usuario").innerHTML = mailUsuario;
 }
+
+var inputAmigo = document.getElementById("friend");
+
+inputAmigo.addEventListener('keydown', function (event) {
+    if (event.key === "Enter") {
+        añadirAmigo();
+    }
+});
+
+
+var inputMensaje = document.getElementById("sms");
+
+inputMensaje.addEventListener('keydown', function (event) {
+    if (event.key === "Enter") {
+        enviarMensaje();
+    }
+});
