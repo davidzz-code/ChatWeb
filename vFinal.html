@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,35 +9,31 @@
     <script src="./resources/javascript/vFinal.js"></script>
     <title>ChatWeb</title>
 </head>
-<body>
+
+<body onload="recibirAmigos(); nombreUsuario()">
     <header class="header">
         <div class="header-amigo">
-            <button onclick="añadirDiv()">+</button>
+            <button onclick="añadirAmigo()">+</button>
             <input type="text" name="friend" id="friend" placeholder="Email de amigo">
         </div>
 
         <div class="header-usuario">
-            <div class="nombre-usuario">david@gmail.com</div>
+            <div class="nombre-usuario"></div>
             <button onclick="cerrarSesion()">Cerrar sesión</button>
         </div>
 
     </header>
     <section class="contenedor">
-        <div class="contenedor-amigos">
-        <!-- JavaScript inserta "div-amigo" -->
-        </div>
+        <div class="contenedor-amigos"> <!-- Javascript añade div-amigo --> </div>
         <div class="contenedor-principal">
-            <div class="contenedor-chat">
-                <div class="contenedor-mensaje-amigo"></div>
-                <div class="contenedor-mensaje-usuario"> </div>
-            </div>
+            <!-- Javascript añade div "conversacion" -->
             <div class="contenedor-escribir">
                 <div class="div-sms">
                     <input type="text" name="sms" id="sms" placeholder="Escribe un mensaje">
-                    <button class="enviar" onclick="enviarMensaje()">Enviar</button>
+                    <button onclick="enviarMensaje()" class="boton-enviar">Enviar</button>
                 </div>
             </div>
-        </div>
     </section>
 </body>
+
 </html>

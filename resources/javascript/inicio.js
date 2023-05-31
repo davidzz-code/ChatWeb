@@ -39,8 +39,6 @@ function enviarLogin() {
     http.open("GET", "http://localhost:5000/XatLLM/Login?mail="+mail+"&pass="+pass);
     http.send();
 
-
-
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
             let session = this.responseText;
@@ -48,9 +46,9 @@ function enviarLogin() {
                 window.sessionStorage.setItem("mail", mail);
                 window.sessionStorage.setItem("pass", pass);
                 window.sessionStorage.setItem("session", session);
-                window.location.href = "chat.html";
+                window.location.href = "vFinal.html";
             } else {
-                document.querySelector(".result").innerHTML = "Login INCORRECTO";
+                alert("Login INCORRECTO");
             }
         }
     }

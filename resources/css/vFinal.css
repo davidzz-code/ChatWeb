@@ -20,7 +20,6 @@
 .header .header-usuario{
     display: flex;
     margin-right: 40px;
-
 }
 
 .header .header-usuario .nombre-usuario{
@@ -77,48 +76,42 @@
     justify-content: center;
     align-items: center;
     height: 109px;
-    font-size: 25px;
+    font-size: 20px;
+    background-color: lightgray;
     border: 0.5px solid black;
 }
 
 .contenedor-amigos .div-amigo:hover{
     cursor: pointer;
+    
 }
 
 /* Contenedor derecha conversación */
 .contenedor-principal {
     grid-area: 1 / 2 / 6 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     background-color: lightseagreen;
 }
 
-.contenedor-chat{
-    width: 100%;
-    height: 90%;
+.contenedor-principal .conversacion{
+    flex-grow: 1;
     display: flex;
-    overflow: scroll;
-
-}
-
-.contenedor-chat .contenedor-mensaje-amigo {
-    width: 50%;
-    height: 100%;
-
-}
-
-.contenedor-mensaje-usuario {
-    width: 50%;
-    height: 100%;
-    border: 1px solid black; 
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .contenedor-escribir {
     width: 100%;
     height: 10%;
+    order: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: gray;
 }
+
 
 .contenedor-escribir .div-sms{
     display: flex;
@@ -140,8 +133,24 @@
     border-bottom: 3px solid black;
 }
 
-.contenedor-escribir .div-sms .enviar{
+.contenedor-escribir .div-sms .boton-enviar{
     margin-right: 25px;
     padding: 7px;
     cursor: pointer;
-} 
+}
+
+.mensaje{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 13px;
+    padding-right: 35px;
+    font-size: 20px;
+
+}
+
+.mensaje p{
+    
+    padding: 10px;
+    background-color: lightgreen;
+    border-radius: 5px;
+}
