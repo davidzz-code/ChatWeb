@@ -1,4 +1,7 @@
-function comprobarContraseña() {
+var contrasenaValida = false;
+var ip = "localhost";
+
+function comprobarContrasena() {
     let pass = document.getElementById("pass").value;
     let checkPass = document.getElementById("checkPass").value;
 
@@ -6,9 +9,11 @@ function comprobarContraseña() {
         document.getElementById("checkPass").style.border = "1px solid red";
     } else {
         document.getElementById("checkPass").style.border = "1px solid black";
+        contrasenaValida = true;
     }
+
+
 }
-    // FALTA AÑADIR QUE SI LAS CONTRASEÑAS NO COINCIDEN NO SE PUEDA ENVIAR
 
 function enviarRegistro() {
     var http = new XMLHttpRequest();
@@ -16,18 +21,36 @@ function enviarRegistro() {
     let user = document.getElementById("user").value;
     let mail = document.getElementById("mail").value;
     let pass = document.getElementById("pass").value;
+    let checkPass = document.getElementById("checkPass").value;
     let codeCountry = document.getElementById("codeCountry").value;
-
-    http.open("POST", "http://localhost:5000/XatLLM/Register", true);
+    let conditions = document.getElementById('conditions');
+    http.open("POST", "http://"+ip+":5000/XatLLM/Register", true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("user="+user+"&mail="+mail+"&pass="+pass+"&codeCountry="+codeCountry);
-
+    
     // Respuesta
-    http.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) { // Si el atributo Status es igual a 200 significa que HA IDO TODO BIEN
-            console.log("Registro completado: " + http.responseText);
-            document.getElementById("result").innerHTML = "Te has registrado";
+    if (pass == checkPass) {
+        if (conditions.checked) {
+
+            http.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {// Si el atributo Status es igual a 200 significa que HA IDO TODO BIEN
+                    if (user.trim() === '' || mail.trim() === '' || pass.trim() === '' || codeCountry.trim() === '') {
+                        document.querySelector(".result").innerHTML = "Completa todos los campos";
+                        return;
+                    }
+
+                    console.log("Registro completado: " + http.responseText);
+
+                    document.querySelector(".result").innerHTML = "Te has registrado";
+                    document.querySelector(".result").style.color = "#1470df";
+                    
+                }
+            }
+        } else {
+            document.querySelector(".result").innerHTML = "Debes aceptar las condiciones";
         }
+    } else {
+        document.querySelector(".result").innerHTML = "Las contraseñas no coinciden";
     }
 }
 
@@ -36,19 +59,19 @@ function enviarLogin() {
     let mail = document.getElementById("mail").value;
     let pass = document.getElementById("pass").value;
 
-    http.open("GET", "http://localhost:5000/XatLLM/Login?mail="+mail+"&pass="+pass);
+    http.open("GET", "http://"+ip+":5000/XatLLM/Login?mail="+mail+"&pass="+pass);
     http.send();
 
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
             let session = this.responseText;
-            if (session > 0) {
+            if (session != "false") {
                 window.sessionStorage.setItem("mail", mail);
                 window.sessionStorage.setItem("pass", pass);
                 window.sessionStorage.setItem("session", session);
                 window.location.href = "chat.html";
             } else {
-                alert("Login INCORRECTO");
+                document.querySelector(".result").innerHTML = "Login incorrecto";
             }
         }
     }
@@ -75,6 +98,6 @@ function getCountries() {
             }
         }
     }
-    http.open("GET", "http://localhost:5000/XatLLM/Register", true);
+    http.open("GET", "http://"+ip+":5000/XatLLM/Register", true);
     http.send();
 }
