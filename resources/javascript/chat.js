@@ -52,13 +52,13 @@ function mostrarConversacion()  {
 
     /// Reestablece las propiedades cuando se selecciona otro contacto
     if (contactoSeleccionado) {
+        contactoSeleccionado.style.color = "";
         contactoSeleccionado.style.backgroundColor = "";
-        contactoSeleccionado.style.borderRight = "";
     }
     
     // Canbia el color del contacto seleccionado
-    contacto.style.backgroundColor = colorChat;
-    contacto.style.borderRight = "none";
+    contacto.style.color = "#1e1e1e";
+    contacto.style.backgroundColor = "#ffc91d";
 
     // Oculta todos los divs de conversación
     let listaConversaciones = document.querySelectorAll(".conversacion");

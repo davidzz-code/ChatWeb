@@ -14,41 +14,68 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: lightcoral;
+    background-color: #fc4c4c;
+    border-bottom: 2.5px solid #f2f2f2;
 }
 
 .header .header-usuario{
     display: flex;
-    margin-right: 40px;
+    margin-right: 3% ;
 }
 
 .header .header-usuario .nombre-usuario{
-    margin-right: 10px;
+    margin-right: 20px;
     font-size: 30px;
     font-weight: 600;
+
 }
 
 .header .header-usuario button{
-    padding: 6px;
+    padding: 8px;
     cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #1e1e1e;
+    color: white;
+
 }
 
 .header .header-amigo{
-    margin-left: 40px;
+    /*margin-left: 180px;*/
+    margin-left: 13%;
+    width: 15em;
+    display: flex;
+    align-items: center;
+
+
 }
 
 .header .header-amigo button{
     padding: 8px 13px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: #1e1e1e;
+    color: white;
     cursor: pointer;
 }
 
-.header .header-amigo input{
+.header .header-amigo .inputContacto{
+    border: 2px solid #1e1e1e;
+    padding-right:60px ;
+}
+
+.header .header-amigo .inputContacto #friend{
+    padding: 8px;
     border: none;
-    outline: none;
-    padding: 5px;
-    width: 18em;
-    height: 2.5em;
-    border-radius: 3px;
+    outline: none; 
+    background-color: transparent;
+    
+
+}
+
+.header .header-amigo input::placeholder{
+    color: #1e1e1e;
 }
 
 
@@ -67,7 +94,7 @@
 .contenedor-amigos {
     grid-area: 1 / 1 / 6 / 2;
     overflow: scroll;
-    background-color: lightgreen;
+    background-color: #f9dc7d;
 }
 
 
@@ -76,9 +103,11 @@
     justify-content: center;
     align-items: center;
     height: 109px;
-    font-size: 20px;
-    background-color: lightgray;
-    border: 0.5px solid black;
+    font-size: 30px;
+    background-color: #f9dc7d;
+
+    color: #f2f2f2;
+    border-bottom: 2.5px solid #f2f2f2;
 }
 
 .contenedor-amigos .div-amigo:hover{
@@ -92,7 +121,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-color: lightseagreen;
+    background-color: #1470df;
+    border-left: 2.5px solid #f2f2f2;
 }
 
 .contenedor-principal .conversacion{
@@ -108,7 +138,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: gray;
+    background-color: #1e1e1e;
 }
 
 
@@ -126,15 +156,16 @@
     margin-left: 35px;
     border-radius: 5px;
     padding-left: 15px;
+    background-color: #f2f2f2;
 }
 
-.contenedor-escribir .div-sms input:focus{
-    border-bottom: 3px solid black;
-}
 
 .contenedor-escribir .div-sms .boton-enviar{
     margin-right: 25px;
     padding: 7px;
+    border: none;
+    outline: none;
+    background-color: #f2f2f2;
     cursor: pointer;
 }
 
@@ -146,26 +177,26 @@
 
 .mensaje p{
     padding: 10px;
-    border-radius: 5px;
+
 }
 
 .mensajeUsuario{
-    padding-right: 35px;
+    padding-right: 18px;
     justify-content: flex-end;
 }
 
 .mensajeContacto{
-    padding-left: 35px;
+    padding-left: 18px;
     justify-content: flex-start;
 }
 
 .mensajeUsuario .texto {
-    background-color: lightgreen;
+    background-color: #90ee90;
     justify-content: flex-end;
 }
 
 .mensajeContacto .texto {
     padding: 10px;
-    background-color: lightsalmon;
-    border-radius: 5px;
+    background-color: #f9dc7d;
+
 }
