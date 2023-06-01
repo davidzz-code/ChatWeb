@@ -2,6 +2,7 @@ let i = 1;
 var idContacto;
 var idConversacion;
 var contactoSeleccionado = null;
+var ip = "localhost";
 
 function cargarContactos(emailAmigo) {
     let divContactos = document.querySelector(".contenedor-amigos");
@@ -32,7 +33,7 @@ function cargarContactos(emailAmigo) {
     i++;
     
 
-    // Añade los divs a sus respectivos divs padres
+    // Anade los divs a sus respectivos divs padres
 
     divContactos.appendChild(divAmigo);
     contenedorPrincipal.appendChild(conversacion);
@@ -73,14 +74,14 @@ function mostrarConversacion()  {
     contactoSeleccionado = contacto;
 }
 
-function añadirAmigo() {
+function anadirAmigo() {
     let http = new XMLHttpRequest();
 
     let mail = sessionStorage.getItem("mail");
     let session = sessionStorage.getItem("session");
     let friend = document.getElementById("friend").value;
 
-    http.open("POST", "http://localhost:5000/XatLLM/Friend", true);
+    http.open("POST", "http://" + ip + ":5000/XatLLM/Friend", true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("mail="+mail+"&session="+session+"&friend="+friend);
     
@@ -112,7 +113,7 @@ function recibirAmigos() {
     let mail = sessionStorage.getItem("mail");
     let session = sessionStorage.getItem("session");
 
-    http.open("GET", "http://localhost:5000/XatLLM/Friend?mail="+mail+"&session="+session);
+    http.open("GET", "http://"+ip+":5000/XatLLM/Friend?mail="+mail+"&session="+session);
     http.send();
 
     http.onreadystatechange = function () {
@@ -137,7 +138,7 @@ function enviarMensaje() {
     let receptor = document.getElementById(idContacto).textContent;
     let sms = document.getElementById("sms").value;
 
-    http.open("POST", "http://localhost:5000/XatLLM/Xat", true);
+    http.open("POST", "http://"+ ip+ ":5000/XatLLM/Xat", true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("mail="+mail+"&session="+session+"&receptor="+receptor+"&sms="+sms);
 
@@ -152,7 +153,7 @@ function recibirMensaje() {
     let mail = sessionStorage.getItem("mail");
     let session = sessionStorage.getItem("session");
     
-    http.open("GET", "http://localhost:5000/XatLLM/Xat?mail=" + mail + "&session=" + session, true);
+    http.open("GET", "http://"+ ip +":5000/XatLLM/Xat?mail=" + mail + "&session=" + session, true);
     http.send();
 
     http.onreadystatechange = function () {
@@ -184,7 +185,7 @@ var inputAmigo = document.getElementById("friend");
 
 inputAmigo.addEventListener('keydown', function (event) {
     if (event.key === "Enter") {
-        añadirAmigo();
+        anadirAmigo();
     }
 });
 
