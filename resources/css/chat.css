@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;700&family=Josefin+Sans:wght@300;600&family=Poppins:wght@100;500&family=Roboto+Slab&family=Rubik:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&family=Space+Mono&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Slab', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 /* Header */
@@ -41,8 +41,7 @@
 }
 
 .header .header-amigo{
-    /*margin-left: 180px;*/
-    margin-left: 13%;
+    margin-left: 5%;
     width: 15em;
     display: flex;
     align-items: center;
@@ -69,9 +68,8 @@
     padding: 8px;
     border: none;
     outline: none; 
+    font-size: 17px;
     background-color: transparent;
-    
-
 }
 
 .header .header-amigo input::placeholder{
@@ -105,8 +103,7 @@
     height: 109px;
     font-size: 30px;
     background-color: #f9dc7d;
-
-    color: #f2f2f2;
+    color: #1e1e1e;
     border-bottom: 2.5px solid #f2f2f2;
 }
 
@@ -120,15 +117,17 @@
     grid-area: 1 / 2 / 6 / 4;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    height: 710px;
     background-color: #1470df;
     border-left: 2.5px solid #f2f2f2;
 }
 
 .contenedor-principal .conversacion{
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    overflow: scroll;
 }
 
 .contenedor-escribir {
@@ -172,12 +171,11 @@
 .mensaje{
     display: flex;
     padding-bottom: 13px;
-    font-size: 20px;
+    font-size: 20p
 }
 
 .mensaje p{
     padding: 10px;
-
 }
 
 .mensajeUsuario{
