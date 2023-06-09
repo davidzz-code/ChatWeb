@@ -46,3 +46,17 @@ Antes de ejecutar la aplicación, asegúrate de tener instalados los siguientes 
 4.  Inicia el servidor backend ejecutando el servidor Tomcat.
 5.  Para acceder a la aplicación abre en tu navegador el archivo `registro.html` ubicado en la carpeta `ChatWeb_Frontend`.
 
+## Imágenes de ejemplo
+
+- **Registro de usuarios**
+![Registro](ChatWeb_Frontend/resources/img/Registro-ChatWeb.png)
+
+- **Inicio de sesión**
+![Login](ChatWeb_Frontend/resources/img/Login-ChatWeb.png)
+
+- **Página principal**
+![Página principal](ChatWeb_Frontend/resources/img/MenuPrincipal-ChatWeb.png)
+
+- **Conversación**
+![Conversacion](ChatWeb_Frontend/resources/img/Conversacion-ChatWeb.png)
+
